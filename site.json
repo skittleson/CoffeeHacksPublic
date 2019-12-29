@@ -1,0 +1,66 @@
+{
+  "site": {
+    "company": "Coffee Hacks",
+    "description": "",
+    "keywords": "coffee subscription,coffee hacks",
+    "url": "https://CoffeeHacks.com",
+    "title": "Coffee Hacks",
+    "ga": "UA-93963699-1"
+  },
+  "js": [
+    "src/javascript/site.js",
+    "node_modules/jquery/dist/jquery.slim.min.js",
+    "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+  ],
+  "css": [
+    "src/css/site.css",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+  ],
+  "partials": [
+    "header.hbs",
+    "footer.hbs",
+    "navbar.hbs",
+    "contactInfo.hbs",
+    "payments.hbs"
+  ],
+  "assets": ["robots.txt", "humans.txt", "images", "sw.js"],
+  "pages": [
+    { "file": "index.hbs" },
+    { "file": "offline.hbs" },
+
+    {
+      "file": "shipping.md",
+      "title": "Shipping Info",
+      "keywords": "shipping",
+      "date": "2020-01-01",
+      "description": "Shipping info on coffee related products.",
+      "priority": 0.5
+    },
+    {
+      "file": "productTemplate.hbs",
+      "title": "Product Template test",
+      "keywords": "shipping",
+      "date": "2020-01-01",
+      "description": "Shipping info on coffee related products.",
+      "priority": 0.5
+    },
+    {
+      "file": "about.md",
+      "title": "About Us",
+      "keywords": "about,about us",
+      "date": "2020-01-01",
+      "description": "",
+      "priority": 0.5
+    },
+    {
+      "file": "faq.md",
+      "title": "FAQ",
+      "keywords": "faq",
+      "date": "2020-01-01",
+      "description": "",
+      "priority": 0.5
+    },
+    { "file": "checkout.hbs", "template": "basic.hbs", "priority": 0 }
+  ]
+}
