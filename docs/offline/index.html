@@ -29,37 +29,84 @@
     <link type="text/plain" rel="author" href="https://CoffeeHacks.com/humans.txt" />
 </head>
 
-<body><nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-    <a class="navbar-brand" href="/">Coffee Hacks</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <a class="p-2 text-dark" href="/">Home</a>
-            <a class="p-2 text-dark" href="/">Shop</a>
-            <a class="p-2 text-dark" href="/shipping">Shipping Info</a>
-            <a class="p-2 text-dark" href="/faq">FAQ</a>
-            <a class="p-2 text-dark" href="/about">About Us</a>
-        </ul>
-        <i class="fas fa-shopping-bag"></i>
+<body><div class="sticky-top navbar-sticky-wrapper">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-plain">
+            <a class="navbar-brand" href="/">Coffee Hacks</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <a class="p-2 text-dark" href="/">home</a>
+                    <a class="p-2 text-dark" href="/">shop</a>
+                    <a class="p-2 text-dark" href="/shipping">shipping info</a>
+                    <a class="p-2 text-dark" href="/faq">faq</a>
+                    <a class="p-2 text-dark" href="/about">about us</a>
+                </ul>
+                <i class="fas fa-shopping-bag"></i>
+                <a href="/about">
+                Cart
+                    <!--<svg aria-label="Profile" class="_8-yf5 " fill="#262626" height="24" viewBox="0 0 48 48" width="24">
+                        <path
+                            d="M24 27c-7.1 0-12.9-5.8-12.9-12.9s5.8-13 12.9-13c7.1 0 12.9 5.8 12.9 12.9S31.1 27 24 27zm0-22.9c-5.5 0-9.9 4.5-9.9 9.9s4.4 10 9.9 10 9.9-4.5 9.9-9.9-4.4-10-9.9-10zm20 42.8c-.8 0-1.5-.7-1.5-1.5V42c0-5-4-9-9-9h-19c-5 0-9 4-9 9v3.4c0 .8-.7 1.5-1.5 1.5s-1.5-.7-1.5-1.5V42c0-6.6 5.4-12 12-12h19c6.6 0 12 5.4 12 12v3.4c0 .8-.7 1.5-1.5 1.5z">
+                        </path>
+                    </svg>-->
 
-        <!--<form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>-->
+                </a>
+            </div>
+        </nav>
     </div>
-</nav><h1>Offline</h1>
+</div>
+
+
+
+<!--<nav class="site-header sticky-top py-1 ">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2" href="#" aria-label="Product">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img"
+                viewBox="0 0 24 24" focusable="false">
+                <title>Product</title>
+                <circle cx="12" cy="12" r="10" />
+                <path
+                    d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+            </svg>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <a class="p-2 text-dark" href="/">Home</a>
+                <a class="p-2 text-dark" href="/">Shop</a>
+                <a class="p-2 text-dark" href="/shipping">Shipping Info</a>
+                <a class="p-2 text-dark" href="/faq">FAQ</a>
+                <a class="p-2 text-dark" href="/about">About Us</a>
+            </ul>
+            <i class="fas fa-shopping-bag"></i>
+        </div>
+        <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+    </div>
+</nav>--><h1>Offline</h1>
 
 <p>
     You appear to be offline viewing this site.
 </p>
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="col-12">
+        Sign up for the Coffee Hacks newsletter for exclusive deals, new product releases, contests, and much more.
+
+    </div>
+
     <div class="row">
         <div class="col-12 col-md">
-            <img class="mb-2" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-            <small class="d-block mb-3 text-muted">&copy; 2020</small>
+            
+            <small class="d-block mb-3 text-muted">&copy; 2020 Coffee Hacks</small>
         </div>
         <div class="col-6 col-md">
             <h5>Features</h5>
