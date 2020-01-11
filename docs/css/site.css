@@ -16,6 +16,12 @@ body {
   font-family: "Century Gothic", sans-serif;
 }
 
+
+.strike-out {
+  text-decoration: line-through;
+  color: gray;
+}
+
 /* MARKETING CONTENT
 -------------------------------------------------- */
 

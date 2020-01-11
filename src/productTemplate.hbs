@@ -2,62 +2,84 @@
 <div class="container">
 
     <!-- Portfolio Item Heading -->
-    <h1 class="my-4">Page Heading
+    <h1 class="my-4">6-Bean Espresso Blend
         <small>Secondary Text</small>
     </h1>
 
-    <!-- Portfolio Item Row -->
     <div class="row">
-
         <div class="col-md-8">
-            <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+            <img class="img-fluid" src="/images/temeculaCoffeeBag.jpg" alt="">
         </div>
-
         <div class="col-md-4">
-            <h3 class="my-3">Project Description</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque
-                urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies,
-                justo eu convallis placerat, felis enim.</p>
-            <h3 class="my-3">Project Details</h3>
+            <h2>
+                <span class="strike-out">$35.23</span> $21.34
+            </h2>
+            <form>
+                <div class="form-group">
+                    <label for="grindSelect">Grind</label>
+                    <select class="form-control" id="grindSelect">
+                        <option value="1">Whole Bean</option>
+                        <option value="2">Espresso Grind</option>
+                        <option value="3">Drip Grind</option>
+                        <option value="4">French Press Grind</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantitySelect">Quantity</label>
+                    <select class="form-control" id="quantitySelect">
+                        <option selected="selected">1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </div>
+                <input type="hidden" class="productIdInput" value="123456" />
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Add to Cart</button>
+            </form>
+
+            <br />
+            <p>This great coffee is very well balanced and makes great espresso drinks as well as some killer cold brew!
+            </p>
+            <h3 class="my-3">Details</h3>
             <ul>
-
-                <li>Lorem Ipsum</li>
-                <li>Dolor Sit Amet</li>
-                <li>Consectetur</li>
-                <li>Adipiscing Elit</li>
+                <li>Well balanced espresso</li>
+                <li>Great as a cold brew on ice</li>
+                <li>Blend from Indonesia, Africa, Central and South America</li>
+                <li>Roasted to each order</li>
             </ul>
-
-            <p>Secure and trusted checkout:</p>
-            {{> payments}}
         </div>
 
     </div>
     <!-- /.row -->
 
     <!-- Related Projects Row -->
-    <h3 class="my-4">Related Projects</h3>
+    <h3 class="my-4">How To's</h3>
 
     <div class="row">
 
         <div class="col-md-3 col-sm-6 mb-4">
+            Make an awesome cold brew!
             <a href="#">
                 <img class="img-fluid" src="http://placehold.it/500x300" alt="">
             </a>
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
+            Pour over
             <a href="#">
                 <img class="img-fluid" src="http://placehold.it/500x300" alt="">
             </a>
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
+            Espresso hacks
             <a href="#">
                 <img class="img-fluid" src="http://placehold.it/500x300" alt="">
             </a>
         </div>
 
         <div class="col-md-3 col-sm-6 mb-4">
+            Something fun
             <a href="#">
                 <img class="img-fluid" src="http://placehold.it/500x300" alt="">
             </a>

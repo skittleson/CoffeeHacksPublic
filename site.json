@@ -5,7 +5,7 @@
     "keywords": "coffee subscription,coffee hacks",
     "url": "https://CoffeeHacks.com",
     "title": "Coffee Hacks",
-    "ga": "UA-93963699-1"
+    "ga": "UA-123456-1"
   },
   "js": [
     "src/javascript/site.js",
