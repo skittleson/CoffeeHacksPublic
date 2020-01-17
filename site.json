@@ -22,7 +22,9 @@
     "footer.hbs",
     "navbar.hbs",
     "contactInfo.hbs",
-    "payments.hbs"
+    "payments.hbs",
+    "shippingDetails.hbs",
+    "checkoutValidations.hbs"
   ],
   "assets": ["robots.txt", "humans.txt", "images", "sw.js"],
   "pages": [
@@ -30,7 +32,7 @@
     { "file": "offline.hbs" },
 
     {
-      "file": "shipping.md",
+      "file": "shipping.hbs",
       "title": "Shipping Info",
       "keywords": "shipping",
       "date": "2020-01-01",
