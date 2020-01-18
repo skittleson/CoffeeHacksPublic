@@ -1,9 +1,6 @@
 <!-- Page Content -->
 <div class="container">
-
-    <!-- Portfolio Item Heading -->
-    <h1 class="my-4">6-Bean Espresso Blend</h1>
-
+    <h1 class="my-4">Guatemala <small>Single Origin</small></h1>
     <div class="row">
         <div class="col-md-8">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -37,11 +34,16 @@
         </div>
 
         <div class="col-md-4">
-            <h2>
+            <h2 class="my-3">
                 <span class="strike-out">$35.23</span> $21.34
             </h2>
+            <p class="my-3">
+                These coffee beans have tasting notes indicating a full body and a rich
+                chocolatey-cocoa flavor, and a toffee-like sweetness. Guatemalan coffees are true central American
+                coffees.
+            </p>
             <form>
-                <div class="form-group">
+                <div class="form-group my-3">
                     <label for="grindSelect">Grind</label>
                     <select class="form-control" id="grindSelect">
                         <option value="1">Whole Bean</option>
@@ -60,12 +62,10 @@
                     </select>
                 </div>
                 <input type="hidden" class="productIdInput" value="123456" />
-                <button type="submit" class="btn btn-primary btn-lg btn-block shake">ADD TO CART</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block shake my-4">ADD TO CART</button>
             </form>
-            <center>{{>checkoutValidations}}</center>
-            <br />
-            <p>This great coffee is very well balanced and makes great espresso drinks as well as some killer cold brew!
-            </p>
+            <center class="my-4">{{>checkoutValidations}}</center>
+
 
         </div>
 
