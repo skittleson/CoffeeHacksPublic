@@ -1,15 +1,26 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
-/* Padding below the footer and lighter body text */
+/* Padding below the footer and lighter body text
+
+.navbar-sticky-wrapper {
+  box-shadow: 3px 0 7px #999;
+}
+*/
 
 body {
   padding-bottom: 3rem;
-  color: #5a5a5a;
+  color: #594f4f;
+}
+*, p {
+  font-weight: 300;
 }
 
 .navbar-plain,
 .navbar-sticky-wrapper {
   background-color: white;
+}
+.navbar-sticky-wrapper {
+  border-bottom: 1px solid #f9f9f9;
 }
 
 summary > h3 {
