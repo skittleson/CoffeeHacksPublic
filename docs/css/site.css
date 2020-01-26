@@ -7,11 +7,17 @@
 }
 */
 
+.jumbotron {
+  background-image: url("../images/coffee-on-wood.jpg") !important;
+  background-size: cover !important;
+}
+
 body {
   padding-bottom: 3rem;
   color: #594f4f;
 }
-*, p {
+*,
+p {
   font-weight: 300;
 }
 
