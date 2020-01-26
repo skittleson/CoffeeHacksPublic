@@ -24,7 +24,9 @@
     "contactInfo.hbs",
     "payments.hbs",
     "shippingDetails.hbs",
-    "checkoutValidations.hbs"
+    "checkoutValidations.hbs",
+    "productTopFeature.hbs",
+    "productAboutFeature.hbs"
   ],
   "assets": ["robots.txt", "humans.txt", "images", "sw.js"],
   "pages": [
@@ -40,25 +42,33 @@
       "priority": 0.5
     },
     {
-      "file": "productTemplate.hbs",
-      "title": "Product Template test",
-      "keywords": "shipping",
+      "file": "shop.hbs",
+      "title": "Shop",
+      "keywords": "shop coffee beans",
       "date": "2020-01-01",
-      "description": "Shipping info on coffee related products.",
+      "description": "Shop for our coffee beans",
       "priority": 0.5
     },
     {
-      "file": "about.md",
+      "file": "guatemala.hbs",
+      "title": "Guatemala Single Origin",
+      "keywords": "guatemala coffee",
+      "date": "2020-01-01",
+      "description": "Product description of guatemala beans single origin for coffee.",
+      "priority": 0.5
+    },
+    {
+      "file": "ethiopian.hbs",
+      "title": "Ethiopian Single Origin",
+      "keywords": "ethiopian coffee",
+      "date": "2020-01-01",
+      "description": "Product description of ethiopian beans single origin for coffee.",
+      "priority": 0.5
+    },
+    {
+      "file": "about.hbs",
       "title": "About Us",
       "keywords": "about,about us",
-      "date": "2020-01-01",
-      "description": "",
-      "priority": 0.5
-    },
-    {
-      "file": "faq.md",
-      "title": "FAQ",
-      "keywords": "faq",
       "date": "2020-01-01",
       "description": "",
       "priority": 0.5

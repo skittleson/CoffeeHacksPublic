@@ -4,17 +4,5 @@
         <title>Coffee Hacks</title>
         <link>https://CoffeeHacks.com</link>
         <atom:link href="https://CoffeeHacks.com/rss.xml" rel="self" type="application/rss+xml" />
-        <item>
-            <title>About Us</title>
-            <link>https://CoffeeHacks.com/about</link>
-            <guid>https://CoffeeHacks.com/about</guid>
-            <pubDate>2020-01-01</pubDate>
-        </item>
-        <item>
-            <title>FAQ</title>
-            <link>https://CoffeeHacks.com/faq</link>
-            <guid>https://CoffeeHacks.com/faq</guid>
-            <pubDate>2020-01-01</pubDate>
-        </item>
     </channel>
 </rss>

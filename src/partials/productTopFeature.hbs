@@ -1,0 +1,43 @@
+<h1 class="featurette-heading my-4">{{productName}} <small>{{productSubName}}</small></h1>
+<div class="row">
+    <div class="col-md-8">
+        <img class="img-fluid rounded"
+            src="{{productImage}}" />
+    </div>
+
+    <div class="col-md-4">
+        <h2 class="my-3">
+            <small class="text-muted">Price:</small> <span class="strike-out">${{productPrice}}</span> ${{productPriceDiscount}}
+        </h2>
+        <p class="lead">
+            {{productDetails}}
+        </p>
+        <form>
+            <div class="form-group">
+                <label for="grindSelect">Grind</label>
+                <select class="form-control" id="grindSelect">
+                    <option value="1">Whole Bean</option>
+                    <option value="2">Espresso Grind</option>
+                    <option value="3">Drip Grind</option>
+                    <option value="4">French Press Grind</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantitySelect">Quantity</label>
+                <select class="form-control" id="quantitySelect">
+                    <option selected="selected">1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+            <input type="hidden" class="productId" value="{{productId}}" />
+            <button type="submit" class="btn btn-primary btn-lg btn-block shake my-4">ADD TO CART</button>
+        </form>
+        <center class="my-4">{{>checkoutValidations}}</center>
+
+
+    </div>
+
+</div>
+<!-- /.row -->
