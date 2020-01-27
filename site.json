@@ -5,10 +5,13 @@
     "keywords": "coffee subscription,coffee hacks",
     "url": "https://CoffeeHacks.com",
     "title": "Coffee Hacks",
-    "ga": "UA-123456-1"
+    "ga": "UA-123456-1",
+    "stripe": "pk_test_TYooMQauvdEDq54NiTphI7jx",
+    "api": "https://qpksioupoc.execute-api.us-east-1.amazonaws.com"
   },
   "js": [
     "src/javascript/site.js",
+    "src/javascript/stripeSubmission.js",
     "node_modules/jquery/dist/jquery.slim.min.js",
     "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
   ],
@@ -73,6 +76,7 @@
       "description": "",
       "priority": 0.5
     },
-    { "file": "checkout.hbs", "template": "basic.hbs", "priority": 0 }
+    { "file": "checkout.hbs", "template": "basic.hbs", "priority": 0 },
+    { "file": "privacy.hbs", "priority": 0.1 }
   ]
 }

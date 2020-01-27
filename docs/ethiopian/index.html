@@ -91,25 +91,25 @@
     <h1 class="featurette-heading my-4">Ethiopian <small>Single Origin</small></h1>
     <div class="row">
         <div class="col-md-8">
-            <img class="img-fluid rounded"
-                src="https://images.unsplash.com/photo-1527964275784-5ce8ddab3d8e?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;eyJhcHBfaWQiOjEyMDd9&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;1050&amp;q&#x3D;80" />
+            <img class="img-fluid rounded" src="https://images.unsplash.com/photo-1527964275784-5ce8ddab3d8e?ixlib&#x3D;rb-1.2.1&amp;ixid&#x3D;eyJhcHBfaWQiOjEyMDd9&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;1050&amp;q&#x3D;80" />
         </div>
     
         <div class="col-md-4">
             <h2 class="my-3">
-                <small class="text-muted">Price:</small> <span class="strike-out">$29.15</span> $19.55
+                <small class="text-muted">Price:</small> <span class="strike-out">$26.99</span>
+                $19.99
             </h2>
             <p class="lead">
                 Coffee from Ethiopia is known for its bright fruited and floral flavors. These coffees typically have a higher acidity, light to medium body and complex flavor notes.
             </p>
-            <form>
+            <form id="addToCartForm">
                 <div class="form-group">
                     <label for="grindSelect">Grind</label>
                     <select class="form-control" id="grindSelect">
-                        <option value="1">Whole Bean</option>
-                        <option value="2">Espresso Grind</option>
-                        <option value="3">Drip Grind</option>
-                        <option value="4">French Press Grind</option>
+                        <option value="Whole">Whole Bean</option>
+                        <option value="Espresso">Espresso Grind</option>
+                        <option value="Drip">Drip Grind</option>
+                        <option value="French">French Press Grind</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -121,7 +121,9 @@
                         <option>4</option>
                     </select>
                 </div>
-                <input type="hidden" class="productId" value="" />
+                <input type="hidden" class="productPrice" value="26.99" />
+                <input type="hidden" class="productName" value="Ethiopian" />
+                <input type="hidden" class="productId" value="product_e123" />
                 <button type="submit" class="btn btn-primary btn-lg btn-block shake my-4">ADD TO CART</button>
             </form>
             <center class="my-4"><div id="bundle-badges-container" style="font-size: 0; white-space:nowrap;"><svg version="1.1" height="90"
@@ -386,8 +388,6 @@
                 </g>
             </g>
         </svg></div></center>
-    
-    
         </div>
     
     </div>
@@ -492,13 +492,13 @@
     <div class="row">
         <div class="col-12">
             <center>
-                <small class="d-block text-muted">&copy; 2020 Coffee Hacks</small>
+                <small class="d-block text-muted">&copy; 2020 Coffee Hacks | <a href="/privacy">privacy</a></small>
             </center>
         </div>
     </div>
 </footer>
 
-<script async src="js/site.js"></script>
+<script async src="js/site.js?v=3"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123456-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];

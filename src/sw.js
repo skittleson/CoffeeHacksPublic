@@ -2,10 +2,8 @@
 
 const CACHE = "pwabuilder-offline";
 
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "index.html";
 const offlineFallbackPage = "offline/index.html";
 
-// Install stage sets up the index page (home page) in the cache and opens a new cache
 self.addEventListener("install", function(event) {
   console.log("[PWA Builder] Install Event processing");
 

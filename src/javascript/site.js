@@ -18,50 +18,107 @@ if ("serviceWorker" in navigator) {
   }
 }
 
-function AddItem() {
-  var productId = document.querySelector(".productIdInput").value;
-  var data = {
-    qty: document.querySelector("#quantitySelect").value,
-    grind: document.querySelector("#grindSelect").value
-  };
-  localStorage.setItem(productId, data);
-  //doShowAll();
+var addToCartForm = document.querySelector("#addToCartForm");
+if (addToCartForm) {
+  addToCartForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    CartSave(
+      event.srcElement.querySelector(".productId").value,
+      event.srcElement.querySelector(".productName").value,
+      event.srcElement.querySelector(".productPrice").value,
+      event.srcElement.querySelector("#quantitySelect").value,
+      event.srcElement.querySelector("#grindSelect").value
+    );
+  });
+}
+
+var productList = document.getElementById("product-list");
+if (productList) {
+  BuildCart();
+}
+
+var paymentForm = document.getElementById("payment-form");
+if (paymentForm) {
+  document
+    .getElementById("same-address")
+    .addEventListener("change", function(event) {
+      var shippingAddressElement = document.getElementById("shipping-address");
+      shippingAddressElement.hidden = event.srcElement.checked;
+      shippingAddressElement.disabled = event.srcElement.checked
+        ? "disabled"
+        : "";
+    });
+}
+
+function CartSave(productId, name, price, qty, grind) {
+  if (productId) {
+    var data = {
+      qty: Number(qty),
+      grind: grind,
+      name: name,
+      price: Number(price)
+    };
+    localStorage.setItem(productId, JSON.stringify(data));
+  } else {
+    throw Error("No product id given");
+  }
 }
 
 function RemoveItem(productId) {
   localStorage.removeItem(productId);
-  //doShowAll();
 }
 
 function ClearAll() {
-  localStorage.clear();
-  //doShowAll();
+  var keys = Object.keys(localStorage);
+  for (var i = 0; i < keys.length; i++) {
+    var productId = keys[i];
+    if (productId.indexOf("product_") == -1) {
+      continue;
+    }
+    localStorage.removeItem(productId);
+  }
 }
 //--------------------------------------------------------------------------------------
 // dynamically populate the table with shopping list items
 //below step can be done via PHP and AJAX too.
-function doShowAll() {
+function BuildCart() {
   if (CheckBrowser()) {
-    var key = "";
-    var list = "<tr><th>Item</th><th>Value</th></tr>\n";
-    var i = 0;
-    //for more advance feature, you can set cap on max items in the cart
-    for (i = 0; i <= localStorage.length - 1; i++) {
-      key = localStorage.key(i);
-      list +=
-        "<tr><td>" +
-        key +
-        "</td>\n<td>" +
-        localStorage.getItem(key) +
-        "</td></tr>\n";
+    var list = "";
+    var keys = Object.keys(localStorage);
+    var totalPrice = 0;
+    var totalItems = 0;
+    for (var i = 0; i < keys.length; i++) {
+      var productId = keys[i];
+      if (productId.indexOf("product_") == -1) {
+        continue;
+      }
+      totalItems += 1;
+      var cartItemData = JSON.parse(localStorage.getItem(productId));
+      var cartItemDisplay =
+        '<li class="list-group-item d-flex justify-content-between lh-condensed"><div><h6 class="product-name my-0">$NAME</h6><small class="text-muted">Grind Style: $GRIND</small><br/><small class="text-muted">Qty: $QTY</small></div><span class="product-price text-muted">$$PRICE</span></li>';
+      cartItemDisplay = cartItemDisplay.replace("$NAME", cartItemData.name);
+      cartItemDisplay = cartItemDisplay.replace("$QTY", cartItemData.qty);
+      cartItemDisplay = cartItemDisplay.replace("$GRIND", cartItemData.grind);
+      cartItemDisplay = cartItemDisplay.replace(
+        "$PRICE",
+        cartItemData.price * cartItemData.qty
+      );
+      totalPrice += cartItemData.price * cartItemData.qty;
+      list += cartItemDisplay;
     }
-    //if no item exists in the cart
-    if (list == "<tr><th>Item</th><th>Value</th></tr>\n") {
-      list += "<tr><td><i>empty</i></td>\n<td><i>empty</i></td></tr>\n";
+    if (list.length < 1) {
+      list =
+        '<li class="list-group-item d-flex justify-content-between"><b>Your cart is empty</b></li>';
     }
-    //bind the data to html table
-    //you can use jQuery too....
-    document.getElementById("list").innerHTML = list;
+    var cartSummaryDisplay =
+      '<li class="list-group-item d-flex justify-content-between"><span>Total (USD)</span><strong>$$PRICE</strong></li>';
+    cartSummaryDisplay = cartSummaryDisplay.replace("$PRICE", totalPrice);
+    list += cartSummaryDisplay;
+    document.getElementById("productCount").innerText = totalItems;
+    document.getElementById("product-list").innerHTML = list;
+    if (totalPrice > 0) {
+      document.getElementById("btnSubmitPaymentForm").disabled = false;
+    }
   } else {
     alert("Cannot save shopping list as your browser does not support HTML 5");
   }
