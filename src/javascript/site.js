@@ -29,6 +29,11 @@ if (addToCartForm) {
       event.srcElement.querySelector("#quantitySelect").value,
       event.srcElement.querySelector("#grindSelect").value
     );
+    event.srcElement.querySelector(".shake").classList.remove("shake");
+    setTimeout(function() {
+      BuildCart();
+      $(".dropdown-toggle").click();
+    }, 500);
   });
 }
 
@@ -117,7 +122,10 @@ function BuildCart() {
     document.getElementById("productCount").innerText = totalItems;
     document.getElementById("product-list").innerHTML = list;
     if (totalPrice > 0) {
-      document.getElementById("btnSubmitPaymentForm").disabled = false;
+      var submitPaymentBtn = document.getElementById("btnSubmitPaymentForm");
+      if (submitPaymentBtn) {
+        submitPaymentBtn.disabled = false;
+      }
     }
   } else {
     alert("Cannot save shopping list as your browser does not support HTML 5");

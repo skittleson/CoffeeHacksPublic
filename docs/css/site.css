@@ -12,6 +12,19 @@
   background-size: cover !important;
 }
 
+.dropdown-menu.show {
+  min-width: 400px;
+  padding: 5%;
+}
+
+.dropdown-checkout {
+  font-size: 150%;
+}
+
+.list-group-dropdown-item {
+  border: 1px solid rgba(0,0,0,.125);
+}
+
 body {
   padding-bottom: 3rem;
   color: #594f4f;

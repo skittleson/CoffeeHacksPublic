@@ -46,10 +46,33 @@
                     <a class="p-2 text-dark" href="/shipping">shipping info</a>
                     <a class="p-2 text-dark" href="/about">about us</a>
                 </ul>
-                <a href="/checkout">
-                    <i class="fas fa-shopping-cart"></i>
-                    Cart
-                </a>
+                <div class="btn-group">
+                    <button type="button" class="btn dropdown-toggle btn-link" data-toggle="dropdown"
+                        data-display="static" aria-haspopup="true" aria-expanded="false">
+                        <svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>noun_1020868_cc</title>
+                            <desc>Shopping Cart</desc>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="2_Menu_01" transform="translate(-325.000000, -25.000000)" fill="#000000"
+                                    fill-rule="nonzero">
+                                    <g id="noun_1020868_cc" transform="translate(325.000000, 25.000000)">
+                                        <path
+                                            d="M19.7759091,4.516875 C19.6693182,4.368375 19.4965909,4.27995 19.3125,4.27995 L4.36954545,4.27995 L3.36590909,0.48555 C3.30045455,0.237825 3.07454545,0.065475 2.81613636,0.065475 L0.6875,0.065475 C0.373636364,0.065475 0.119318182,0.31725 0.119318182,0.627975 C0.119318182,0.9387 0.373636364,1.190475 0.6875,1.190475 L2.3775,1.190475 L5.60159091,13.37895 C5.66681818,13.626675 5.89272727,13.799025 6.15113636,13.799025 L16.4743182,13.799025 C16.7881818,13.799025 17.0425,13.54725 17.0425,13.236525 C17.0425,12.9258 16.7881818,12.674025 16.4743182,12.674025 L6.58954545,12.674025 L6.18090909,11.129625 L17.2904545,11.129625 C17.5320455,11.129625 17.7470455,10.978425 17.8268182,10.75275 L19.8486364,5.0283 C19.9095455,4.856175 19.8822727,4.6656 19.7759091,4.516875 Z M16.8872727,10.004625 L5.88363636,10.004625 L4.66704545,5.405175 L18.5118182,5.405175 L16.8872727,10.004625 Z M7.93136364,14.267475 C6.91022727,14.267475 6.07954545,15.08985 6.07954545,16.100775 C6.07954545,17.1117 6.91022727,17.9343 7.93136364,17.9343 C8.9525,17.9343 9.78318182,17.1117 9.78318182,16.100775 C9.78318182,15.08985 8.95272727,14.267475 7.93136364,14.267475 Z M7.93136364,16.809525 C7.53681818,16.809525 7.21590909,16.4916 7.21590909,16.101 C7.21590909,15.7104 7.53681818,15.3927 7.93136364,15.3927 C8.32590909,15.3927 8.64681818,15.7104 8.64681818,16.101 C8.64681818,16.4916 8.32613636,16.809525 7.93136364,16.809525 Z M13.8836364,14.267475 C12.8625,14.267475 12.0318182,15.08985 12.0318182,16.100775 C12.0318182,17.1117 12.8625,17.9343 13.8836364,17.9343 C14.905,17.9343 15.7359091,17.1117 15.7359091,16.100775 C15.7359091,15.08985 14.905,14.267475 13.8836364,14.267475 Z M13.8836364,16.809525 C13.4890909,16.809525 13.1681818,16.4916 13.1681818,16.101 C13.1681818,15.7104 13.4890909,15.3927 13.8836364,15.3927 C14.2784091,15.3927 14.5995455,15.7104 14.5995455,16.101 C14.5995455,16.4916 14.2784091,16.809525 13.8836364,16.809525 Z"
+                                            id="Shape"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <span id="productCount" class="badge badge-success">0</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-lg-right">
+                        <ul class="list-group mb-3" id="product-list"> </ul>
+                        <a class="dropdown-item dropdown-checkout active shake" href="/checkout">
+                            <center>🔒 CHECKOUT</center>
+                        </a>
+                    </div>
+                </div>
             </div>
         </nav>
     </div>
@@ -111,7 +134,7 @@
     <hr class="featurette-divider">
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading my-4">Coffee 🌱 <span class="text-muted">to cup ☕</span></h2>
+            <h2 class="featurette-heading my-4">From 🌱 <span class="text-muted">to coffee ☕</span></h2>
             <p class="lead">Our coffee beans are hand picked from organic &amp; premium farms. Coffee tasters find the
                 rich blends and quality that everyone can fall in love with. We roast, package, and ship it to your
                 doorstep. Your coffee gets the care and attention it needs to taste its best. </p>
