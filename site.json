@@ -4,6 +4,7 @@
     "description": "",
     "keywords": "coffee subscription,coffee hacks",
     "url": "https://CoffeeHacks.com",
+    "domain": "CoffeeHacks.com",
     "title": "Coffee Hacks",
     "ga": "UA-123456-1",
     "stripe": "pk_test_TYooMQauvdEDq54NiTphI7jx",

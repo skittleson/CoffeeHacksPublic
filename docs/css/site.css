@@ -6,7 +6,9 @@
   box-shadow: 3px 0 7px #999;
 }
 */
-
+footer {
+  background-color: #c7c7c7;
+}
 .jumbotron {
   background-image: url("../images/coffee-on-wood.jpg") !important;
   background-size: cover !important;
@@ -21,9 +23,6 @@
   font-size: 150%;
 }
 
-.list-group-dropdown-item {
-  border: 1px solid rgba(0,0,0,.125);
-}
 
 body {
   padding-bottom: 3rem;
