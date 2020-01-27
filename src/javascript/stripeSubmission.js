@@ -104,7 +104,9 @@ function SubmitForConfirmation(result) {
       lastName: form.querySelector("#lastName").value,
       stripe: result.token,
       email: form.querySelector("#email").value,
-      shippingSame: form.querySelector("#same-address").checked
+      phone: form.querySelector("#phone").value,
+      shippingSame: form.querySelector("#same-address").checked,
+      cart: []
     };
     if (!request.shippingSame) {
       request.shipping = {
@@ -118,10 +120,22 @@ function SubmitForConfirmation(result) {
         address_zip: form.querySelector("#shippingZip").value
       };
     }
+    var keys = Object.keys(localStorage);
+    for (var i = 0; i < keys.length; i++) {
+      var productId = keys[i];
+      if (productId.indexOf("product_") == -1) {
+        continue;
+      }
+      var cartItem = JSON.parse(localStorage.getItem(productId));
+      request.cart.push({
+        productId: productId,
+        priceOnSite: cartItem.price
+      });
+    }
     var jsonRequest = JSON.stringify(request);
     console.log(jsonRequest);
     var api = document.querySelector("#api").value;
-    fetch("api/payment", {
+    fetch(api + "/payment", {
       method: "post",
       body: jsonRequest
     }).then(function(response) {

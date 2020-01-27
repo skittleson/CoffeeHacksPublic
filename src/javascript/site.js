@@ -83,6 +83,7 @@ function ClearAll() {
     localStorage.removeItem(productId);
   }
 }
+
 //--------------------------------------------------------------------------------------
 // dynamically populate the table with shopping list items
 //below step can be done via PHP and AJAX too.
