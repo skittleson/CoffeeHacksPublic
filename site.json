@@ -8,7 +8,7 @@
     "title": "Coffee Hacks",
     "ga": "UA-123456-1",
     "stripe": "pk_test_DMb2MoLHv6BViv4Fjgr2BQCT00iq4UFD7h",
-    "api": "https://qpksioupoc.execute-api.us-east-1.amazonaws.com"
+    "api": "https://z9eol2rj17.execute-api.execute-api.us-east-1.amazonaws.com"
   },
   "js": [
     "src/javascript/site.js",
