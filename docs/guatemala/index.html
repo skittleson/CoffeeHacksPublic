@@ -122,8 +122,9 @@
         <div class="col-md-4">
             <h2 class="my-3">
                 <small class="text-muted">Price:</small> <span class="strike-out">$26.99</span>
-                $19.99
+                $18.99 <br/><small class="text-muted">16oz bags</small>
             </h2>
+            
             <p class="lead">
                 These coffee beans have tasting notes indicating a full body and a rich chocolatey-cocoa flavor, and a toffee-like sweetness. Guatemalan coffees are true central American coffees.
             </p>
@@ -134,7 +135,7 @@
                         <option value="Whole">Whole Bean</option>
                         <option value="Espresso">Espresso Grind</option>
                         <option value="Drip">Drip Grind</option>
-                        <option value="French">French Press Grind</option>
+                        <option value="Coarse">Coarse Grind</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -146,9 +147,16 @@
                         <option>4</option>
                     </select>
                 </div>
-                <input type="hidden" class="productPrice" value="26.99" />
+                <div class="form-group">
+                    <label for="subscribeSelect">Subscription</label>
+                    <select class="form-control" id="subscribeSelect" size="2">
+                        <option selected="selected" value="one">One time purchase</option>
+                        <option value="monthly">Monthly (Save 20%)</option>
+                    </select>
+                </div>
+                <input type="hidden" class="productPrice" value="18.99" />
                 <input type="hidden" class="productName" value="Guatemala" />
-                <input type="hidden" class="productId" value="product_123456" />
+                <input type="hidden" class="productId" value="product_prod_GerLSHjFI53Ttl" />
                 <button type="submit" class="btn btn-primary btn-lg btn-block shake my-4">ADD TO CART</button>
             </form>
             <center class="my-4"><div id="bundle-badges-container" style="font-size: 0; white-space:nowrap;"><svg version="1.1" height="90"
@@ -414,7 +422,6 @@
             </g>
         </svg></div></center>
         </div>
-    
     </div>
     <!-- /.row --><div class="row">
     <div class="col-sm-12">
@@ -519,7 +526,8 @@
 </ul> <a href="/shipping" class="float-right">click here more information</a>
     </div>
 </div></div>
-<footer class="container-fluid py-5">
+</br>
+<footer class="container-fluid py-5 final-footer">
     <div class="row">
         <div class="col-12 col-md">
             <h1>Coffee Hacks</h1><br />
@@ -531,7 +539,7 @@
                 <li><a class="text-muted" href="/shop">Shop All</a></li>
                 <li><a class="text-muted" href="/shipping">Shipping</a></li>
                 <li><a class="text-muted" href="/privacy">Privacy</a></li>
-                <li><a class="text-muted" href="#">Terms</a></li>
+                <li><a class="text-muted" href="/terms">Terms</a></li>
             </ul>
 
         </div>
@@ -542,17 +550,21 @@
                 <li><a class="text-muted" href="#">Contact us page</a></li>
             </ul>
         </div>
-        <div class="col-6 col-md">
+        <div class="col-12 col-md">
 
             <h5>Get 10% off your first order!</h5>
-            <input type="email" class="form-input" placeholder="youremail@example.com" />
-            <p class="lead">Sign up for the Coffee Hacks newsletter for exclusive deals, new product releases, contests, and much
-                more.</p>
+            <div class="input-group mb-3">
+                <input type="email" class="form-control" placeholder="youremail@example.com" />
+                <div class="input-group-append">
+                    <button class="btn btn-primary">Subscribe</button>
+                </div>
+            </div>
+
+            <p class="lead">Sign up for the Coffee Hacks newsletter for hacks, exclusive deals, new product releases, and
+                much more.</p>
         </div>
     </div>
-</footer>
-
-<script async src="js/site.js?v=3"></script>
+</footer><script async src="js/site.js?v=3"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123456-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];

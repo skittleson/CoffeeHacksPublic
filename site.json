@@ -7,7 +7,7 @@
     "domain": "CoffeeHacks.com",
     "title": "Coffee Hacks",
     "ga": "UA-123456-1",
-    "stripe": "pk_test_TYooMQauvdEDq54NiTphI7jx",
+    "stripe": "sk_test_uf4zmxXyoqvmZun0aUMVBYo800gevKeYdK",
     "api": "https://qpksioupoc.execute-api.us-east-1.amazonaws.com"
   },
   "js": [
@@ -30,7 +30,8 @@
     "shippingDetails.hbs",
     "checkoutValidations.hbs",
     "productTopFeature.hbs",
-    "productAboutFeature.hbs"
+    "productAboutFeature.hbs",
+    "infoFooter.hbs"
   ],
   "assets": ["robots.txt", "humans.txt", "images", "sw.js"],
   "pages": [
@@ -78,6 +79,7 @@
       "priority": 0.5
     },
     { "file": "checkout.hbs", "template": "basic.hbs", "priority": 0 },
-    { "file": "privacy.hbs", "priority": 0.1 }
+    { "file": "privacy.hbs", "priority": 0.1 },
+    { "file": "terms.hbs", "priority": 0.1 }
   ]
 }

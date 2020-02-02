@@ -1,17 +1,14 @@
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text
-
-.navbar-sticky-wrapper {
-  box-shadow: 3px 0 7px #999;
+.btn-link{
+  padding: 0 !important;
+  margin: 0;
 }
-*/
-footer {
-  background-color: #c7c7c7;
+.final-footer {
+  background-color: #e9ecef;
 }
-.jumbotron {
+.jumbotron-beans {
   background-image: url("../images/coffee-on-wood.jpg") !important;
   background-size: cover !important;
+  color: white;
 }
 
 .dropdown-menu.show {
@@ -23,11 +20,10 @@ footer {
   font-size: 150%;
 }
 
-
 body {
-  padding-bottom: 3rem;
   color: #594f4f;
 }
+
 *,
 p {
   font-weight: 300;
@@ -74,6 +70,11 @@ li {
 .marketing .col-lg-4 p {
   margin-right: 0.75rem;
   margin-left: 0.75rem;
+}
+
+.marketing {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 /* Featurettes

@@ -27,7 +27,8 @@ if (addToCartForm) {
       event.srcElement.querySelector(".productName").value,
       event.srcElement.querySelector(".productPrice").value,
       event.srcElement.querySelector("#quantitySelect").value,
-      event.srcElement.querySelector("#grindSelect").value
+      event.srcElement.querySelector("#grindSelect").value,
+      event.srcElement.querySelector("#subscribeSelect").value
     );
     event.srcElement.querySelector(".shake").classList.remove("shake");
     setTimeout(function() {
@@ -55,13 +56,14 @@ if (paymentForm) {
     });
 }
 
-function CartSave(productId, name, price, qty, grind) {
+function CartSave(productId, name, price, qty, grind, subscribe) {
   if (productId) {
     var data = {
       qty: Number(qty),
       grind: grind,
       name: name,
-      price: Number(price)
+      price: Number(price),
+      subscribe: subscribe
     };
     localStorage.setItem(productId, JSON.stringify(data));
   } else {
@@ -71,6 +73,7 @@ function CartSave(productId, name, price, qty, grind) {
 
 function RemoveItem(productId) {
   localStorage.removeItem(productId);
+  BuildCart();
 }
 
 function ClearAll() {
@@ -101,10 +104,19 @@ function BuildCart() {
       totalItems += 1;
       var cartItemData = JSON.parse(localStorage.getItem(productId));
       var cartItemDisplay =
-        '<li class="list-group-item d-flex justify-content-between lh-condensed"><div><h6 class="product-name my-0">$NAME</h6><small class="text-muted">Grind Style: $GRIND</small><br/><small class="text-muted">Qty: $QTY</small></div><span class="product-price text-muted">$$PRICE</span></li>';
+        '<li class="list-group-item d-flex justify-content-between lh-condensed"><div><h6 class="product-name my-0">$NAME</h6><small class="text-muted">Grind Style: $GRIND</small><br/><small class="text-muted">Qty: $QTY</small>$SUBSCRIBE</div><div class="text-right"><span class="product-price text-muted">$$PRICE</span></br></br><small><button class="btn btn-link" onclick="RemoveItem(\'$PRODUCT_ID\');">remove</button></small></div></li>';
+      cartItemDisplay = cartItemDisplay.replace("$PRODUCT_ID", productId);
       cartItemDisplay = cartItemDisplay.replace("$NAME", cartItemData.name);
       cartItemDisplay = cartItemDisplay.replace("$QTY", cartItemData.qty);
       cartItemDisplay = cartItemDisplay.replace("$GRIND", cartItemData.grind);
+      var subscribe = "";
+      if (cartItemData.subscribe === "monthly") {
+        subscribe =
+          '<br/><small class="text-muted">Recurring: ' +
+          cartItemData.subscribe +
+          "</small>";
+      }
+      cartItemDisplay = cartItemDisplay.replace("$SUBSCRIBE", subscribe);
       cartItemDisplay = cartItemDisplay.replace(
         "$PRICE",
         cartItemData.price * cartItemData.qty
@@ -122,11 +134,9 @@ function BuildCart() {
     list += cartSummaryDisplay;
     document.getElementById("productCount").innerText = totalItems;
     document.getElementById("product-list").innerHTML = list;
-    if (totalPrice > 0) {
-      var submitPaymentBtn = document.getElementById("btnSubmitPaymentForm");
-      if (submitPaymentBtn) {
-        submitPaymentBtn.disabled = false;
-      }
+    var submitPaymentBtn = document.getElementById("btnSubmitPaymentForm");
+    if (submitPaymentBtn) {
+      submitPaymentBtn.disabled = totalPrice < 1;
     }
   } else {
     alert("Cannot save shopping list as your browser does not support HTML 5");
