@@ -16,17 +16,16 @@
                 <span id="productCount" class="badge badge-secondary badge-pill">3</span>
             </h4>
             <ul class="list-group mb-3" id="product-list"> </ul>
-            <center class="my-4">{{>checkoutValidations}}</center>
-            <center class="my-4">{{> payments}}</center>
-
-            <!--<form class="card p-2">
+            <form id="coupon-form" class="card p-2">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Promo code">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-secondary">Redeem</button>
                     </div>
                 </div>
-            </form>-->
+            </form>
+            <center class="my-4">{{>checkoutValidations}}</center>
+            <center class="my-4">{{> payments}}</center>
 
         </div>
         <div class="col-md-8 order-md-1">
@@ -212,7 +211,8 @@
                     </div>
                 </div>
                 <hr class="mb-4">
-                <button id="btnSubmitPaymentForm" disabled class="btn btn-primary btn-lg btn-block" type="submit">Complete Order</button>
+                <button id="btnSubmitPaymentForm" disabled class="btn btn-primary btn-lg btn-block"
+                    type="submit">Complete Order</button>
                 <!--<div class="outcome">
                     <div class="error" role="alert"></div>
                     <div class="success">

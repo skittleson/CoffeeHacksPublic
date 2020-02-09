@@ -65,16 +65,18 @@ if (stripeKeyElement) {
     }
   }
 
-  document.querySelector("form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    var form = document.querySelector("form");
-    var browserClientReportValidity = form.reportValidity();
-    if (!browserClientReportValidity) {
-      return;
-    }
-    var extraDetails = GetBillingDetails(form);
-    stripe.createToken(card, extraDetails).then(SubmitForConfirmation);
-  });
+  document
+    .querySelector("#payment-form")
+    .addEventListener("submit", function(e) {
+      e.preventDefault();
+      var form = document.querySelector("#payment-form");
+      var browserClientReportValidity = form.reportValidity();
+      if (!browserClientReportValidity) {
+        return;
+      }
+      var extraDetails = GetBillingDetails(form);
+      stripe.createToken(card, extraDetails).then(SubmitForConfirmation);
+    });
 }
 
 function GetBillingDetails(form) {
@@ -99,7 +101,7 @@ function SubmitForConfirmation(result) {
   if (result.token) {
     // Use the token to create a charge or a customer
     // https://stripe.com/docs/payments/charges-api
-    var form = document.querySelector("form");
+    var form = document.querySelector("#payment-form");
     var request = {
       firstName: form.querySelector("#firstName").value,
       lastName: form.querySelector("#lastName").value,
@@ -107,7 +109,8 @@ function SubmitForConfirmation(result) {
       email: form.querySelector("#email").value,
       phone: form.querySelector("#phone").value,
       shippingSame: form.querySelector("#same-address").checked,
-      cart: []
+      cart: [],
+      coupon: null
     };
     if (!request.shippingSame) {
       request.shipping = {
@@ -123,20 +126,28 @@ function SubmitForConfirmation(result) {
     }
     var keys = Object.keys(localStorage);
     for (var i = 0; i < keys.length; i++) {
-      var productId = keys[i];
-      if (productId.indexOf("product_") == -1) {
+      var localStorageItem = keys[i];
+      if (localStorageItem.indexOf("coupon") >= 0) {
+        request.coupon = JSON.parse(
+          localStorage.getItem(localStorageItem)
+        ).coupon;
         continue;
       }
-      var cartItem = JSON.parse(localStorage.getItem(productId));
+      if (localStorageItem.indexOf("product_") == -1) {
+        continue;
+      }
+      var cartItem = JSON.parse(localStorage.getItem(localStorageItem));
       request.cart.push({
-        productId: productId,
-        priceOnSite: cartItem.price
+        productId: localStorageItem.replace("product_", ""),
+        priceOnSite: cartItem.price,
+        quantity: cartItem.qty,
+        type: cartItem.subscribe ? "subscription" : "single"
       });
     }
     var jsonRequest = JSON.stringify(request);
     console.log(jsonRequest);
     var api = document.querySelector("#api").value;
-    fetch(api + "/payment", {
+    fetch(api + "/dev/v1/process-subscription-payment", {
       method: "post",
       body: jsonRequest
     }).then(function(response) {

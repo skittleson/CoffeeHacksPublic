@@ -35,13 +35,11 @@
             <div class="form-group">
                 <label for="subscribeSelect">Subscription</label>
                 <select class="form-control" id="subscribeSelect" size="2">
-                    <option selected="selected" value="one">One time purchase</option>
-                    <option value="monthly">Monthly (Save 20%)</option>
+                    <option selected="selected" value="product_{{productId}}" price="{{productPriceDiscount}}" subscription="false">One time purchase</option>
+                    <option value="product_{{productIdSubscription}}" price="{{productPriceSubscriptionDiscount}}"   subscription="true">Monthly (Save 20%)</option>
                 </select>
             </div>
-            <input type="hidden" class="productPrice" value="{{productPriceDiscount}}" />
             <input type="hidden" class="productName" value="{{productName}}" />
-            <input type="hidden" class="productId" value="product_{{productId}}" />
             <button type="submit" class="btn btn-primary btn-lg btn-block shake my-4">ADD TO CART</button>
         </form>
         <center class="my-4">{{>checkoutValidations}}</center>

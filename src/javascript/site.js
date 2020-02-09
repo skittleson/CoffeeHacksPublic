@@ -22,15 +22,20 @@ var addToCartForm = document.querySelector("#addToCartForm");
 if (addToCartForm) {
   addToCartForm.addEventListener("submit", function(event) {
     event.preventDefault();
+    var product = event.srcElement.querySelector("#subscribeSelect");
+    console.log(product);
     CartSave(
-      event.srcElement.querySelector(".productId").value,
+      product.value,
       event.srcElement.querySelector(".productName").value,
-      event.srcElement.querySelector(".productPrice").value,
+      product.options[product.selectedIndex].getAttribute("price"),
       event.srcElement.querySelector("#quantitySelect").value,
       event.srcElement.querySelector("#grindSelect").value,
-      event.srcElement.querySelector("#subscribeSelect").value
+      product.options[product.selectedIndex].getAttribute("subscription")
     );
-    event.srcElement.querySelector(".shake").classList.remove("shake");
+    var shakeEle = event.srcElement.querySelector(".shake");
+    if (shakeEle) {
+      shakeEle.classList.remove("shake");
+    }
     setTimeout(function() {
       BuildCart();
       $(".dropdown-toggle").click();
@@ -56,6 +61,26 @@ if (paymentForm) {
     });
 }
 
+var couponForm = document.getElementById("coupon-form");
+if (couponForm) {
+  couponForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    var couponText = couponForm.getElementsByClassName("form-control")[0];
+
+    // TODO (spencerk,20200209): this should be pulled from an api call to validate this is an actual coupon.
+    var coupon = "firstorder";
+    if (couponText.value === coupon) {
+      localStorage.setItem(
+        "coupon",
+        JSON.stringify({ discount: 0.1, coupon: coupon })
+      );
+      BuildCart();
+    } else {
+      alert("Not a valid a coupon");
+    }
+  });
+}
+
 function CartSave(productId, name, price, qty, grind, subscribe) {
   if (productId) {
     var data = {
@@ -63,7 +88,7 @@ function CartSave(productId, name, price, qty, grind, subscribe) {
       grind: grind,
       name: name,
       price: Number(price),
-      subscribe: subscribe
+      subscribe: subscribe == "true"
     };
     localStorage.setItem(productId, JSON.stringify(data));
   } else {
@@ -110,11 +135,8 @@ function BuildCart() {
       cartItemDisplay = cartItemDisplay.replace("$QTY", cartItemData.qty);
       cartItemDisplay = cartItemDisplay.replace("$GRIND", cartItemData.grind);
       var subscribe = "";
-      if (cartItemData.subscribe === "monthly") {
-        subscribe =
-          '<br/><small class="text-muted">Recurring: ' +
-          cartItemData.subscribe +
-          "</small>";
+      if (cartItemData.subscribe) {
+        subscribe = '<br/><small class="text-muted">Recurring: Monthly</small>';
       }
       cartItemDisplay = cartItemDisplay.replace("$SUBSCRIBE", subscribe);
       cartItemDisplay = cartItemDisplay.replace(
@@ -128,6 +150,21 @@ function BuildCart() {
       list =
         '<li class="list-group-item d-flex justify-content-between"><b>Your cart is empty</b></li>';
     }
+    var couponStore = localStorage.getItem("coupon");
+    var couponDiscount = 0.0;
+    if (couponStore) {
+      couponStore = JSON.parse(couponStore);
+      couponDiscount = Number(couponStore.discount) * totalPrice;
+      couponDiscount =
+        Math.round((couponDiscount + Number.EPSILON) * 100) / 100;
+      var couponToAdd =
+        '<li class="list-group-item d-flex justify-content-between bg-light"><div class="text-success"><h6 class="my-0">Promo code</h6><small>$COUPON</small></div><span class="text-success">-$$AMOUNT</span></li>';
+      couponToAdd = couponToAdd.replace("$COUPON", couponStore.coupon);
+      couponToAdd = couponToAdd.replace("$AMOUNT", couponDiscount);
+      list += couponToAdd;
+    }
+    totalPrice -= couponDiscount;
+    totalPrice = Math.round((totalPrice + Number.EPSILON) * 100) / 100;
     var cartSummaryDisplay =
       '<li class="list-group-item d-flex justify-content-between"><span>Total (USD)</span><strong>$$PRICE</strong></li>';
     cartSummaryDisplay = cartSummaryDisplay.replace("$PRICE", totalPrice);
